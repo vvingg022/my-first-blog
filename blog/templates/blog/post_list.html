@@ -17,6 +17,10 @@
     <main class="container">
     <div class="row">
         <div class="col">
+
+            {% extends 'blog/base.html' %}
+
+            {% block content %}
             {% for post in posts %}
                 <article class="post">
                     <time class="date">
@@ -26,8 +30,9 @@
                     <p>{{ post.text|linebreaksbr }}</p>
                 </article>
             {% endfor %}
+            {% endblock %}
         </div>
     </div>
-</main>
+    </main>
     </body>
 </html>
