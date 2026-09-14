@@ -7,9 +7,12 @@
             <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}">
                 {% include './icons/pencil-fill.svg' %}
             </a>
-            <a class="btn btn-secondary" href="{% url 'post_remove' pk=post.pk %}">
+            <form method="post" action="{% url 'post_remove' pk=post.pk %}" style="display:inline;">
+                {% csrf_token %}
+            <button type="submit" class="btn btn-secondary">
                 {% include './icons/trash-fill.svg' %}
-            </a>
+            </button>
+            </form>
             {% endif %}
         </aside>
         {% if post.published_date %}
